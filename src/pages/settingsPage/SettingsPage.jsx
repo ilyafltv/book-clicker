@@ -1,29 +1,27 @@
 import { useContext } from "react";
 import { ClickerContext } from "@context/context";
-import { setLocalStorage } from "@utils/storage.js";
 import Button from "../../components/UI/Button/Button";
-import { loadInitialProgress } from "../../constants";
 
 export default function SettingsPage() {
-  const { audioRef, isPlayingMusic, setIsPlayingMusic, setGameState } =
+  const { audioRef, isPlayingMusic, setIsPlayingMusic, resetAllProgress } =
     useContext(ClickerContext);
 
+  // Переключение музыки
   const toggleMusic = () => {
     if (isPlayingMusic) {
       audioRef.current.pause();
+      setIsPlayingMusic(false);
     } else {
       audioRef.current
         .play()
         .catch((error) => console.error("Playback failed:", error));
+      setIsPlayingMusic(true);
     }
-    setIsPlayingMusic(!isPlayingMusic);
-    setLocalStorage("isPlayingMusic", !isPlayingMusic);
   };
 
   const deleteProgress = () => {
-    localStorage.clear();
-    setGameState(() => loadInitialProgress());
-    alert("Данные сессии очищены!");
+    resetAllProgress();
+    window.alert("Данные сессии очищены!");
   };
 
   return (
@@ -38,9 +36,15 @@ export default function SettingsPage() {
           <Button className="btnDelete" onClick={deleteProgress}>
             Удалить прогресс
           </Button>
-          <a className="btnLink" href="https://github.com/ilyafltv">
+
+          <Button
+            className="btnLink"
+            onClick={() => {
+              window.open("https://github.com/ilyafltv", "_blank");
+            }}
+          >
             Перейти к авторам
-          </a>
+          </Button>
         </div>
       </div>
     </div>

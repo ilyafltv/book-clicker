@@ -14,6 +14,15 @@ export default function Layout() {
 
   const audioRef = useRef(null);
 
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
+  // Эффект для управления музыкой
+  useEffect(() => {
+    if (!isPlayingMusic && audioRef.current) {
+      audioRef.current.pause();
+    }
+  }, [isPlayingMusic]);
+
   useEffect(() => {
     const intervalSpeed = setInterval(() => {
       const storageData = getLocalStorage("progress", null);
@@ -57,13 +66,29 @@ export default function Layout() {
     });
   };
 
+  // Сброс прогресса
+  const resetAllProgress = () => {
+    const initialProgress = loadInitialProgress();
+    setGameState(initialProgress);
+    setLocalStorage("progress", initialProgress);
+
+    setIsPlayingMusic(false);
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  };
+
   const contextValue = useMemo(
     () => ({
       gameState,
       updateGameState,
       audioRef,
+      isPlayingMusic,
+      setIsPlayingMusic,
+      resetAllProgress,
     }),
-    [gameState]
+    [gameState, isPlayingMusic]
   );
 
   return (
