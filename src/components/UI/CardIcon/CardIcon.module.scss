@@ -1,0 +1,42 @@
+@use "@styles/_importer" as *;
+
+// Card
+
+.cardIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  aspect-ratio: 1;
+  padding: 20px;
+  border: 4px solid $color-dark;
+  background-color: $color-dark-secondary;
+  cursor: pointer;
+
+  img {
+    width: 70px;
+    aspect-ratio: 1;
+  }
+}
+
+.сardIconImprovements {
+  border: 4px solid $color-dark !important;
+  background-color: $color-improvements !important;
+}
+
+.сardIconStatsImprovements {
+  border: 4px solid $color-improvements !important;
+}
+
+.сardIconAchieveDefault {
+  border: 4px solid $color-achieve !important;
+
+  img {
+    color: red !important;
+  }
+}
+
+.сardIconAchieveEpic {
+  border: 4px solid $color-achieve-epic !important;
+}

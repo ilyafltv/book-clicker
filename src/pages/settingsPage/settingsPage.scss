@@ -1,0 +1,35 @@
+@use "@styles/_importer" as *;
+
+.pageSettings {
+  background: url("@images/backgrounds/background-brick2.png");
+
+  h2 {
+    color: $color-light;
+    margin-right: auto;
+  }
+
+  p {
+    color: $color-light;
+    margin-right: auto;
+  }
+
+  .btnLink {
+    color: $color-light;
+    position: relative;
+  }
+
+  .btnLink::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $color-light;
+    position: absolute;
+    inset: auto auto -10px 0;
+  }
+}
+
+.settingsContent {
+  @include flex-base(column, center, flex-start);
+  gap: 20px;
+  width: 100%;
+}

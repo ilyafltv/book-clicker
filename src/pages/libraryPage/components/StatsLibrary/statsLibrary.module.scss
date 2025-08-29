@@ -1,0 +1,15 @@
+@use "@styles/_importer" as *;
+
+.libraryStats {
+  display: block;
+  padding-bottom: 40px;
+}
+
+.libraryStat {
+  @include flex-base(row, center, center);
+  column-gap: clamp(10px, 2vw, 20px);
+
+  img {
+    width: clamp(30px, 5vw, 50px);
+  }
+}

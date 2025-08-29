@@ -1,0 +1,73 @@
+@use "@styles/_importer" as *;
+
+.educationCard {
+  background-color: $color-education;
+  @include flex-base(row, center, space-between);
+
+  padding: 20px;
+  width: 100%;
+  border: 4px solid $color-dark;
+  margin-bottom: 30px;
+  cursor: pointer;
+  position: relative;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.educationCardContent {
+  display: flex;
+  gap: 15px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+
+    &Image {
+      width: 150px !important;
+      aspect-ratio: 1;
+    }
+  }
+
+  &Image {
+    width: 70px;
+    aspect-ratio: 1;
+  }
+}
+
+.educationCardInfo {
+  @include flex-base(column, stretch, space-between);
+
+  @include mobile {
+    gap: 10px;
+
+    h3 {
+      font-size: 21px;
+      text-align: center;
+    }
+  }
+
+  span {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: clamp(5px, 2vw, 10px);
+  }
+
+  img {
+    width: 36px;
+    aspect-ratio: auto;
+  }
+}
+
+.educationCardCount {
+  font-size: 42px;
+  color: $color-accent;
+
+  @include mobile {
+    font-size: 21px;
+  }
+}

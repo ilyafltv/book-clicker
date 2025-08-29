@@ -1,0 +1,39 @@
+@use "@styles/_importer" as *;
+
+.pageShop {
+  background: url("@images/backgrounds/background-stone.png");
+
+  &Sections {
+    width: 100%;
+    @include flex-base(row, stretch, space-between);
+    gap: 80px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+}
+
+.shopSection {
+  width: 100%;
+}
+
+// Card
+
+.improvementsCards {
+  @include flex-base(row, center);
+  align-self: center;
+  column-gap: 20px;
+  row-gap: 30px;
+  flex-wrap: wrap;
+}
+
+// cards
+.improvementsCards {
+  @include flex-base(row, center);
+  align-self: center;
+  column-gap: 20px;
+  row-gap: 30px;
+  flex-wrap: wrap;
+}

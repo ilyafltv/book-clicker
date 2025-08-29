@@ -1,0 +1,14 @@
+@use "@styles/_importer" as *;
+
+.pageAchievements {
+  background: url("@images/backgrounds/background-wood.png");
+}
+
+.AchievementsList {
+  @include flex-base(row, stretch, flex-start);
+  width: 100%;
+  column-gap: 20px;
+  row-gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}

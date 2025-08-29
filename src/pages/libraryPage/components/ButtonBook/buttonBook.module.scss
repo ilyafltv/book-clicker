@@ -1,0 +1,17 @@
+@use "@styles/_importer" as *;
+
+.btn-book {
+  background-image: url("@images/btn-book.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  max-width: 420px;
+
+  width: 100%; /* или любое другое значение */
+  aspect-ratio: 12/9; /* Соотношение сторон (ширина/высота) */
+  object-fit: cover;
+
+  @include flex-base(row, center, center);
+  font-size: clamp(36px, 16vw, 72px);
+}

@@ -1,0 +1,93 @@
+@use "_importer" as *;
+
+@use "scss-reset/total";
+@use "@pages/libraryPage/libraryPage.scss";
+@use "@pages/shopPage/shopPage.scss";
+@use "@pages/infoPage/infoPage.scss";
+@use "@pages/settingsPage/settingsPage.scss";
+@use "@pages/achievementsPage/achievementsPage.scss";
+@use "@pages/statsPage/statsPage.scss";
+
+@font-face {
+  font-family: "PressStart2P";
+  src: url("../public/fonts/PressStart2P-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: "PressStart2P", Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.container-content {
+  max-width: $container-width;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  color: $color-light;
+  text-shadow: -2px -2px 0 $color-dark, 2px -2px 0 $color-dark,
+    -2px 2px 0 $color-dark, 2px 2px 0 $color-dark;
+  margin-bottom: clamp(15px, 4vw, 40px);
+}
+
+h2 {
+  font-size: clamp(18px, 4vw, 32px);
+  color: $color-dark;
+  margin-bottom: clamp(10px, 3vw, 30px);
+}
+
+h3 {
+  font-size: clamp(16px, 4vw, 18px);
+  color: $color-dark;
+  margin-bottom: clamp(5px, 2vw, 10px);
+}
+
+h4 {
+  font-size: 13px;
+  color: $color-dark;
+  margin-bottom: 5px;
+}
+
+.title-block {
+  margin-right: auto;
+}
+
+.title-block--white {
+  color: $color-light;
+}
+
+.subtitle-block {
+  margin-right: auto;
+}
+
+.subtitle-block--white {
+  color: $color-light;
+}
+
+p {
+  font-size: 12px;
+  line-height: 150%;
+  margin-bottom: 30px;
+}
