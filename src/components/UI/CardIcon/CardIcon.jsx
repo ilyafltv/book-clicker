@@ -6,6 +6,7 @@ export default function CardIcon({ image, ...props }) {
       {...props}
       className={`${classes.cardIcon} ${classes[props.className]}`}
       key={props.key}
+      title=""
     >
       <img src={image} />
     </div>

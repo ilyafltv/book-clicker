@@ -69,9 +69,10 @@ export default function ShopImprovements() {
 
         {isHovered && (
           <Tooltip
-            products={gameState.productsImprovements}
+            items={gameState.productsImprovements}
             position={position}
             isHovered={isHovered}
+            type="improvement" // ← Просто передаем тип!
           />
         )}
       </div>

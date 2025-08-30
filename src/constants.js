@@ -9,6 +9,9 @@ import brainGold from "@images/icons/brain-gold.png";
 import textbookGold from "@images/icons/textbook-gold.png";
 import coursesGold from "@images/icons/courses-gold.png"
 import sun from "@images/icons/sun.svg"
+import earth from "@images/icons/earth.png"
+import cup from "@images/icons/cup.png"
+import bookOpen from "@images/icons/book-open.png"
 
 export const currency = brainDefault;
 
@@ -28,9 +31,14 @@ export const initialProgress = {
     { id: 4, title: 'Золотая звезда', description: 'Звезда сделает вас эффективнее в два раза.', price: 20000, image: sun, isBought: false }
   ],
   achievementsDefault: [
-    { id: 1, title: 'Название1', description: "Сделать", image: brainGold, isDone: false },
-    { id: 2, title: 'Название2', description: "Сделать", image: textbookGold, isDone: false },
-    { id: 3, title: 'Название3', description: "Сделать", image: coursesGold, isDone: false },
+    { id: 1, title: 'Впереди планеты всей', description: "Запустить игру впервые", image: earth, isDone: false },
+    { id: 2, title: 'Справочная', description: "Посетить страницу статистики", image: bookOpen, isDone: false },
+    { id: 3, title: 'Прагматик', description: "Сделать первую покупку в магазине", image: brainGold, isDone: false },
+  ],
+  achievementsEpic: [
+    { id: 1, title: 'Лучший студент', description: "Купить 3 учебника", image: textbookGold, isDone: false },
+    { id: 2, title: 'Сила в знаниях', description: "Кликнуть курсором на книгу более 100 раз", image: coursesGold, isDone: false },
+    { id: 3, title: 'Золотая чаша', description: "Заработь 1000 единиц опыта", image: cup, isDone: false },
   ]
 }
 

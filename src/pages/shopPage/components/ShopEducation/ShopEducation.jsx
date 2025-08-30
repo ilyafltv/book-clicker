@@ -64,9 +64,10 @@ export default function ShopEducation() {
 
         {isHovered && (
           <Tooltip
-            products={productsEducation}
+            items={gameState.productsEducation}
             position={position}
             isHovered={isHovered}
+            type="education"
           />
         )}
       </div>

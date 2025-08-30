@@ -1,10 +1,18 @@
 import CardIcon from "@components/UI/CardIcon/CardIcon.jsx";
-import itemUnknown from "@images/icons/item-unknown.svg";
-import { useContext } from "react";
+import Tooltip from "@components/UI/Tooltip/Tooltip";
+import { useState, useContext } from "react";
 import { ClickerContext } from "@context/context.js";
 
 export default function AchievementsPage() {
   const { gameState } = useContext(ClickerContext);
+
+  const [hoveredDefault, setHoveredDefault] = useState(null);
+  const [hoveredEpic, setHoveredEpic] = useState(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    setPosition({ x: e.clientX + 15, y: e.clientY + 15 });
+  };
 
   return (
     <div className="page pageAchievements">
@@ -20,11 +28,24 @@ export default function AchievementsPage() {
             return (
               <CardIcon
                 className="сardIconAchieveDefault"
+                onMouseEnter={() => setHoveredDefault(item.id)}
+                onMouseLeave={() => setHoveredDefault(null)}
+                onMouseMove={handleMouseMove}
                 key={item.id}
-                {...item}
+                image={item.image} // ← только нужные пропсы
+                title={item.title}
               />
             );
           })}
+
+          {hoveredDefault && (
+            <Tooltip
+              items={gameState.achievementsDefault}
+              position={position}
+              isHovered={hoveredDefault}
+              type="achievement_default"
+            />
+          )}
         </div>
 
         <h2 className="title-block title-block--white">Особые</h2>
@@ -32,9 +53,28 @@ export default function AchievementsPage() {
           Достигнуто достижений:
         </p>
         <div className="AchievementsList AchievementsEpicList">
-          <CardIcon className="сardIconAchieveEpic" image={itemUnknown} />
-          <CardIcon className="сardIconAchieveEpic" image={itemUnknown} />
-          <CardIcon className="сardIconAchieveEpic" image={itemUnknown} />
+          {gameState.achievementsEpic?.map((item) => {
+            return (
+              <CardIcon
+                className="сardIconAchieveEpic"
+                onMouseEnter={() => setHoveredEpic(item.id)}
+                onMouseLeave={() => setHoveredEpic(null)}
+                onMouseMove={handleMouseMove}
+                key={item.id}
+                image={item.image} // ← только нужные пропсы
+                title={item.title}
+              />
+            );
+          })}
+
+          {hoveredEpic && (
+            <Tooltip
+              items={gameState.achievementsEpic}
+              position={position}
+              isHovered={hoveredEpic}
+              type="achievement_epic"
+            />
+          )}
         </div>
       </div>
     </div>

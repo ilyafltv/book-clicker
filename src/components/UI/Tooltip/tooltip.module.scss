@@ -21,6 +21,11 @@
   line-height: 1.5;
   color: $color-dark;
 
+  p.tooltipDescription {
+    display: block;
+    margin-bottom: 10px;
+  }
+
   &Price {
     @include flex-base(row, center, flex-start);
     gap: 5px;
@@ -38,6 +43,13 @@
     font-size: 10px;
     margin-bottom: 10px;
     color: $color-dark;
+  }
+
+  &Status {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 10px;
+    color: $color-accent;
   }
 
   p {
